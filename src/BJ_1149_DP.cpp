@@ -3,9 +3,9 @@
 
 using namespace std;
 
-// ¹éÁØ 1149 DP
-// n¹ø Â° ÁıÀ» »öÄ¥ÇÒ °æ¿ì, n-1¹ø Â° Áı°ú ´Ù¸¥ »ö Áß ÀûÀº ºñ¿ëÀÌ
-// µå´Â »öÀ» ¼±ÅÃ.
+// ë°±ì¤€ 1149 DP
+// në²ˆ ì§¸ ì§‘ì„ ìƒ‰ì¹ í•  ê²½ìš°, n-1ë²ˆ ì§¸ ì§‘ê³¼ ë‹¤ë¥¸ ìƒ‰ ì¤‘ ì ì€ ë¹„ìš©ì´
+// ë“œëŠ” ìƒ‰ì„ ì„ íƒ.
 
 
 int minCost(vector<vector<int>>& cost)
@@ -26,7 +26,7 @@ int minCost(vector<vector<int>>& cost)
         dp[i][2] = cost[i][2] + min(dp[i - 1][0], dp[i - 1][1]);
     }
 
-    return min(dp[n - 1][0], min(dp[n - 1][1], dp[n - 1][2]));
+    return min({dp[n - 1][0], dp[n - 1][1], dp[n - 1][2]});
 }
 
 int main(void)
