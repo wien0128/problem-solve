@@ -11,7 +11,7 @@ using namespace std;
 // 최대 중량 계산
 int getMaxWeight(vector<int>& ropes, int n)
 {
-    ranges::sort(ropes);   // 로프 내림차순
+    ranges::sort(ropes);   // 로프 오름차순
 
     int maxWeight{ 0 };
     for (int i = 0; i < n; i++)
