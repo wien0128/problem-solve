@@ -7,6 +7,7 @@ using namespace std;
 // 로봇프로젝트 3649 TwoPointer
 // 주어진 레고 조각들 중 두 조각의
 // 합이 x 와 같은지 판별하는 문제
+// O( nlogn )
 
 
 int main(void)
