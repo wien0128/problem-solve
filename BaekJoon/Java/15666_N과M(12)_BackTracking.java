@@ -1,0 +1,56 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+// N과M(12) 15666 BackTracking
+// O( N^M )
+
+
+public class Main {
+    static int n, m;
+    static int[] nums;
+    static int[] seq;
+    static StringBuilder sb = new StringBuilder();
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+
+        seq = new int[m];
+        nums = new int[n];
+
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; ++i) {
+            nums[i] = Integer.parseInt(st.nextToken());
+        }
+
+        Arrays.sort(nums);
+
+        DFS(0, 0);
+
+        System.out.println(sb.toString());
+    }
+
+    private static void DFS(int depth, int start) {
+        if (depth == m) {
+            for (int i = 0; i < m; ++i) {
+                sb.append(seq[i]).append(' ');
+            }
+            sb.append('\n');
+            return;
+        }
+
+        int prev = -1;
+        for (int i = start; i < n; ++i) {
+            if (nums[i] == prev) continue;
+
+            seq[depth] = nums[i];
+            DFS(depth + 1, i);
+            prev = nums[i];
+        }
+    }
+}
